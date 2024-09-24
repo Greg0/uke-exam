@@ -1,0 +1,20 @@
+{
+    "name": "greg0/uke-exam",
+    "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "openspout/openspout": "^4.25",
+        "twig/twig": "^3.14"
+    },
+    "autoload": {
+        "psr-4": {
+            "Greg0\\UkeExam\\": "src/"
+        }
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:8000 -t public"
+    },
+    "config": {
+        "process-timeout":0
+    }
+}

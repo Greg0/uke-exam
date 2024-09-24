@@ -1,0 +1,30 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    {% for question in questions %}
+        <section>
+
+            <h4>{{ question.id }}: {{ question.title }}</h4>
+            <ol type="a">
+                {% for key,answer in question.availableAnswers %}
+                    <li>
+                        <input type="radio" id="{{ question.id }}-{{ key }}" name="{{ question.id }}" value="{{ key }}">
+                        <label for="{{ question.id }}-{{ key }}">{{ answer }}</label><br>
+                    </li>
+                {% endfor %}
+            </ol>
+            {% if question.correctAnswers != '' %}
+            <details>
+                <summary>odp</summary>
+                <p>{{ question.correctAnswers }}</p>
+            </details>
+            {%  endif %}
+            {% if question.hint != '' %}
+            <details>
+                <summary>hint</summary>
+                <p>{{ question.hint }}</p>
+            </details>
+            {%  endif %}
+        </section>
+    {% endfor %}
+{% endblock %}
