@@ -1,7 +1,9 @@
 <?php
 
+use Greg0\UkeExam\CacheableQuestionsQuery;
 use Greg0\UkeExam\QuestionsQuery;
 use OpenSpout\Reader\XLSX\Reader;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -19,9 +21,16 @@ $query = new QuestionsQuery(
     __DIR__ . '/UKE_porownanie_pytan.xlsx'
 );
 
-$questions = $query->findAll($_GET['sheet'] ?? 'nowe');
+$query2 = new CacheableQuestionsQuery(
+    $query,
+    new FilesystemAdapter(directory: __DIR__ . '/../var/cache')
+);
+
+$pageName = $_GET['sheet'] ?? 'nowe';
+$questions = $query2->findAll($pageName);
 
 $template = $twig->load('question.html.twig');
 echo $template->render([
-    'questions' => $questions
+    'page' => $pageName,
+    'questions' => $questions,
 ]);

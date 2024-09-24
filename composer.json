@@ -4,7 +4,8 @@
     "require": {
         "php": ">=8.2",
         "openspout/openspout": "^4.25",
-        "twig/twig": "^3.14"
+        "twig/twig": "^3.14",
+        "symfony/cache": "^7.1"
     },
     "autoload": {
         "psr-4": {
