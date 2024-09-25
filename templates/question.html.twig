@@ -3,8 +3,9 @@
 {% block content %}
     {% for question in questions %}
         <section>
-
-            <h4>{{ question.id }}: {{ question.title }}</h4>
+            <p>
+                <b>{{ question.id }}: {{ question.title }}</b>
+            </p>
             <ol type="a">
                 {% for key,answer in question.availableAnswers %}
                     <li>
