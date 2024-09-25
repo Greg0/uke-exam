@@ -5,9 +5,9 @@
 
     {% for question in questions %}
         {% set img = asset_path ~ question.id ~ ".png" %}
-        <section>
+        <section id="{{ question.id }}">
             <p>
-                <b>{{ question.id }}: {{ question.title }}</b>
+                <b><a href="#{{ question.id }}">{{ question.id }}</a>: {{ question.title }}</b>
                 {% if img is ondisk %}
                 <br /><img src="{{ img }}" alt="{{ question.id }}">
                 {% endif %}
