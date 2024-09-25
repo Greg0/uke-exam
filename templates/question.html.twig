@@ -31,7 +31,7 @@
             {% if question.hint != '' %}
             <details>
                 <summary>hint</summary>
-                <p>{{ question.hint }}</p>
+                <p>{{ question.hint|nl2br }}</p>
             </details>
             {%  endif %}
         </section>
