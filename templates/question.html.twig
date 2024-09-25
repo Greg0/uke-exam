@@ -1,10 +1,16 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
+    {% set asset_path = '/img/' %}
+
     {% for question in questions %}
+        {% set img = asset_path ~ question.id ~ ".png" %}
         <section>
             <p>
                 <b>{{ question.id }}: {{ question.title }}</b>
+                {% if img is ondisk %}
+                <br /><img src="{{ img }}" alt="{{ question.id }}">
+                {% endif %}
             </p>
             <ol type="a">
                 {% for key,answer in question.availableAnswers %}
