@@ -8,8 +8,10 @@
             <ol type="a">
                 {% for key,answer in question.availableAnswers %}
                     <li>
-                        <input type="radio" id="{{ question.id }}-{{ key }}" name="{{ question.id }}" value="{{ key }}">
-                        <label for="{{ question.id }}-{{ key }}">{{ answer }}</label><br>
+                        <label for="{{ question.id }}-{{ key }}">
+                            <input type="radio" id="{{ question.id }}-{{ key }}" name="{{ question.id }}" value="{{ key }}">
+                            {{ answer }}
+                        </label>
                     </li>
                 {% endfor %}
             </ol>
