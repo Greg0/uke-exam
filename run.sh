@@ -1,7 +1,4 @@
 #/bin/sh
 
-docker run --rm --interactive --tty \
-  -p 8088:8000 \
-    --name uke-exam \
-  --volume $PWD:/var/www \
-  greg0/php-runtime-env:php8.2 composer start
+docker build -t uke-exam .
+docker run -dp 127.0.0.1:8000:8000 uke-exam
