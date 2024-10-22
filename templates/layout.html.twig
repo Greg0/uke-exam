@@ -3,12 +3,26 @@
 <head>
     <title>UKE exam</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <style>
+        @media print {
+            details {
+                display: none;
+            }
+            nav {
+                display: none;
+            }
+            input[type=radio] {
+                display: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" media="print" href="printed.min.css" />
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="?sheet=nowe">nowe</a></li>
-            <li><a href="?sheet=stare">stare</a></li>
+            <li><a href="index.php?sheet=nowe">nowe</a> <a href="answers.php?sheet=nowe">(klucz)</a></li>
+            <li><a href="index.php?sheet=stare">stare</a> <a href="answers.php?sheet=stare">(klucz)</a></li>
         </ul>
     </nav>
     <div id="content">{% block content %}{% endblock %}</div>

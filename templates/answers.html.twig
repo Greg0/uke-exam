@@ -1,0 +1,26 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    {% set asset_path = '/img/' %}
+
+    <table>
+        <tr>
+            <th>pyt.</th>
+            <th>odp.</th>
+            <th>treść odp.</th>
+        </tr>
+
+        {% for question in questions %}
+        <tr id="{{ question.id }}">
+            <td><a href="#{{ question.id }}">{{ question.id }}:</a></td>
+            <td><b>({{ question.correctAnswers }})</b></td>
+            <td><i>{{ question.availableAnswers[question.correctAnswers] }}</i></td>
+        </tr>
+            {% if question.hint != '' %}
+                <tr>
+                    <td colspan="3"><small>{{ question.hint|nl2br }}#}</small></td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock %}
